@@ -1,26 +1,26 @@
-$fb = jQuery.noConflict();
-$fb(document).ready(function() {
+
+$(document).ready(function() {
     //When page loads...
-    $fb(".tab_content").hide(); //Hide all content
-    $fb("ul.tabs li:first").addClass("active").show(); //Activate first tab
-    $fb(".tab_content:first").show(); //Show first tab content
+    $(".tab_content").hide(); //Hide all content
+    $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+    $(".tab_content:first").show(); //Show first tab content
 	
     //On Click Event
-	$fb("ul.tabs li").click(function() {
+	$("ul.tabs li").click(function() {
 	
-		$fb(activeTab).parent().height($fb(activeTab).height());
-		$fb("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$fb(this).addClass("active"); //Add "active" class to selected tab
-		$fb(".tab_content").hide(); //Hide all tab content
+		$(activeTab).parent().height($(activeTab).height());
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
 		
-		var activeTab = $fb(this).find("a").attr("href");
+		var activeTab = $(this).find("a").attr("href");
 		//Find the href attribute value to identify the active tab + content
-		$fb(activeTab).fadeIn(); //Fade in the active ID content
+		$(activeTab).fadeIn(); //Fade in the active ID content
 		return false;
     });
 
 	var toggleSlide = function(){
-	  $fb("ul.tabs li").removeClass("active"); 
+	  $("ul.tabs li").removeClass("active")
 	   .next().add("ul.tabs li:first").last().addClass("active");
 	}
 	setInterval(toggleSlide, 5000);
